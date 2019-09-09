@@ -1,0 +1,4 @@
+{
+  "friend_request": "Friend request from ((?<rank>\\[.+] )?(?<player>\\w+)).*",
+  "party_invite": "(\\[.*] )?(?<player>\\w+) has invited you to join (?<party>\\w+) party!"
+}
