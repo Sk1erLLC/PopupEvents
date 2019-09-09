@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "popup_events",
+    "name": "Popup Events",
+    "description": "Easily accept or deny a friend / party request on Hypixel with the press of a button.",
+    "version": "1.0.0",
+    "mcversion": "1.8.9",
+    "url": "https://sk1er.club",
+    "updateUrl": "",
+    "authorList": [],
+    "credits": "Sk1er LLC",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
