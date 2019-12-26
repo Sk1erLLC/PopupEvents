@@ -1,3 +1,1 @@
-<br>
 <p>Popup Events allows you to easily join/deny a party invite/a friend request on Hypixel with the press of a single key.</p>
-<br>
