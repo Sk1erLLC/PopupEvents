@@ -15,6 +15,7 @@ public abstract class AbstractChatHandler {
 
     public enum ChatRegexType {
         FRIEND_REQUEST,
-        PARTY_INVITE
+        PARTY_INVITE,
+        SKYBLOCK_TRADE_REQUEST
     }
 }

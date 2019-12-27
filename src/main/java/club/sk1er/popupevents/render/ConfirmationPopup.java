@@ -2,6 +2,7 @@ package club.sk1er.popupevents.render;
 
 import club.sk1er.popupevents.events.HypixelFriendRequestEvent;
 import club.sk1er.popupevents.events.HypixelPartyInviteEvent;
+import club.sk1er.popupevents.events.SkyblockTradeRequestEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -36,6 +37,17 @@ public class ConfirmationPopup {
         displayConfirmation("Party request from " + event.getFrom(), accept -> {
             if (accept) {
                 FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/party accept " + event.getFrom());
+            }
+
+            currentConfirmation.framesLeft = 0;
+        });
+    }
+
+    @SubscribeEvent
+    public void tradeRequest(SkyblockTradeRequestEvent event) {
+        displayConfirmation("Trade request from " + event.getUsername(), accept -> {
+            if (accept) {
+                FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/trade " + event.getUsername());
             }
 
             currentConfirmation.framesLeft = 0;
@@ -156,7 +168,7 @@ public class ConfirmationPopup {
                 );
 
                 fr.drawString(text, resolution.getScaledWidth() / 2 - fr.getStringWidth(text) / 2, 58, -1);
-                String acceptDeny = EnumChatFormatting.GREEN +  "[Y] Accept " + EnumChatFormatting.RED + "[N] Deny";
+                String acceptDeny = EnumChatFormatting.GREEN + "[Y] Accept " + EnumChatFormatting.RED + "[N] Deny";
                 fr.drawString(acceptDeny, resolution.getScaledWidth() / 2 - fr.getStringWidth(acceptDeny) / 2, 70, -1);
             }
 
