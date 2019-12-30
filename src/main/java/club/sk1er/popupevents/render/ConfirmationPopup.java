@@ -36,10 +36,7 @@ public class ConfirmationPopup {
     @SubscribeEvent
     public void partyInvite(HypixelPartyInviteEvent event) {
         displayConfirmation("Party request from " + event.getFrom(), accept -> {
-            if (accept) {
-                FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/party accept " + event.getFrom());
-            }
-
+            FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/party accept " + event.getFrom());
             currentConfirmation.framesLeft = 0;
         });
     }
@@ -47,10 +44,7 @@ public class ConfirmationPopup {
     @SubscribeEvent
     public void tradeRequest(SkyblockTradeRequestEvent event) {
         displayConfirmation("Trade request from " + event.getUsername(), accept -> {
-            if (accept) {
-                FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/trade " + event.getUsername());
-            }
-
+            FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/trade " + event.getUsername());
             currentConfirmation.framesLeft = 0;
         });
     }
@@ -58,10 +52,7 @@ public class ConfirmationPopup {
     @SubscribeEvent
     public void duelRequest(HypixelDuelRequestEvent event) {
         displayConfirmation(event.getGame() + " Duel request from " + event.getUsername(), accept -> {
-            if (accept) {
-                FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/duel accept " + event.getUsername());
-            }
-
+            FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/duel accept " + event.getUsername());
             currentConfirmation.framesLeft = 0;
         });
     }
