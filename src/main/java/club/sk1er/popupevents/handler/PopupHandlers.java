@@ -1,9 +1,6 @@
 package club.sk1er.popupevents.handler;
 
-import club.sk1er.popupevents.handler.impl.FriendRequestHandler;
-import club.sk1er.popupevents.handler.impl.PartyInviteHandler;
-import club.sk1er.popupevents.handler.impl.SkyblockTradeRequestHandler;
-import club.sk1er.popupevents.handler.impl.DuelRequestHandler;
+import club.sk1er.popupevents.handler.impl.*;
 import net.minecraft.command.ICommandManager;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,6 +23,7 @@ public class PopupHandlers {
         registerChatHandler(new PartyInviteHandler());
         registerChatHandler(new SkyblockTradeRequestHandler());
         registerChatHandler(new DuelRequestHandler());
+        registerChatHandler(new GuildInviteHandler());
 
         MinecraftForge.EVENT_BUS.register(this);
     }

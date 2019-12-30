@@ -1,9 +1,6 @@
 package club.sk1er.popupevents.render;
 
-import club.sk1er.popupevents.events.HypixelFriendRequestEvent;
-import club.sk1er.popupevents.events.HypixelPartyInviteEvent;
-import club.sk1er.popupevents.events.SkyblockTradeRequestEvent;
-import club.sk1er.popupevents.events.HypixelDuelRequestEvent;
+import club.sk1er.popupevents.events.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -60,6 +57,17 @@ public class ConfirmationPopup {
         displayConfirmation(event.getGame() + " Duel request from " + event.getUsername(), accept -> {
             if (accept) {
                 FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/duel accept " + event.getUsername());
+            }
+
+            currentConfirmation.framesLeft = 0;
+        });
+    }
+
+    @SubscribeEvent
+    public void guildInvite(HypixelGuildInviteEvent event) {
+        displayConfirmation("Guild invite for " + event.getGuild(), accept -> {
+            if (accept) {
+                FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/guild accept " + event.getFrom());
             }
 
             currentConfirmation.framesLeft = 0;
