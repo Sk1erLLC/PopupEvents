@@ -17,6 +17,7 @@ public abstract class AbstractChatHandler {
         FRIEND_REQUEST,
         PARTY_INVITE,
         SKYBLOCK_TRADE_REQUEST,
-        DUEL_REQUEST
+        DUEL_REQUEST,
+        GUILD_INVITE
     }
 }
