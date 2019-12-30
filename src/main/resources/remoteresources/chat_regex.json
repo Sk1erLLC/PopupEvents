@@ -1,5 +1,6 @@
 {
   "friend_request": "Friend request from ((?<rank>\\[.+] )?(?<player>\\w+)).*",
   "party_invite": "(\\[.*] )?(?<player>\\w+) has invited you to join (?<party>\\w+) party!",
-  "skyblock_trade_request": "(?<player>\\S{1,16}) has sent you a trade request\\. Click here to accept!$"
+  "skyblock_trade_request": "(?<player>\\S{1,16}) has sent you a trade request\\. Click here to accept!$",
+  "duel_request": "(\\[.*] )?(?<player>\\S{1,16}) has invited you to (?<gametype>\\S+) Duels!"
 }
