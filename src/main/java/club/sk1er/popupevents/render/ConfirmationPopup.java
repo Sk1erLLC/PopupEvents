@@ -1,6 +1,10 @@
 package club.sk1er.popupevents.render;
 
-import club.sk1er.popupevents.events.*;
+import club.sk1er.popupevents.events.HypixelDuelRequestEvent;
+import club.sk1er.popupevents.events.HypixelFriendRequestEvent;
+import club.sk1er.popupevents.events.HypixelGuildInviteEvent;
+import club.sk1er.popupevents.events.HypixelPartyInviteEvent;
+import club.sk1er.popupevents.events.SkyblockTradeRequestEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -12,7 +16,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
-import java.awt.*;
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.function.Consumer;
@@ -57,10 +61,7 @@ public class ConfirmationPopup {
     @SubscribeEvent
     public void guildInvite(HypixelGuildInviteEvent event) {
         displayConfirmation("Guild invite for " + event.getGuild(), accept -> {
-            if (accept) {
-                FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/guild accept " + event.getFrom());
-            }
-
+            FMLClientHandler.instance().getClient().thePlayer.sendChatMessage("/guild accept " + event.getFrom());
             currentConfirmation.framesLeft = 0;
         });
     }
