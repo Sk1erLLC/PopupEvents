@@ -29,10 +29,7 @@ public class ConfirmationPopup {
     @SubscribeEvent
     public void friendRequest(HypixelFriendRequestEvent event) {
         displayConfirmation("Friend request from " + event.getFrom(), accept -> {
-            if (accept) {
-                FMLClientHandler.instance().getClient().thePlayer.sendChatMessage((accept ? "/friend accept " : "/friend deny ") + event.getFrom());
-            }
-
+            FMLClientHandler.instance().getClient().thePlayer.sendChatMessage((accept ? "/friend accept " : "/friend deny ") + event.getFrom());
             currentConfirmation.framesLeft = 0;
         });
     }
