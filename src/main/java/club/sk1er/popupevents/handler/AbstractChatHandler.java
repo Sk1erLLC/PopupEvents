@@ -20,6 +20,7 @@ public abstract class AbstractChatHandler {
         PARTY_INVITE,
         SKYBLOCK_TRADE_REQUEST,
         DUEL_REQUEST,
-        GUILD_INVITE
+        GUILD_INVITE,
+        GUILD_PARTY
     }
 }

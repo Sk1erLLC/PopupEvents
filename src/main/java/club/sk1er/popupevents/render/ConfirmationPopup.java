@@ -5,6 +5,7 @@ import club.sk1er.popupevents.config.PopupConfig;
 import club.sk1er.popupevents.events.HypixelDuelRequestEvent;
 import club.sk1er.popupevents.events.HypixelFriendRequestEvent;
 import club.sk1er.popupevents.events.HypixelGuildInviteEvent;
+import club.sk1er.popupevents.events.HypixelGuildPartyEvent;
 import club.sk1er.popupevents.events.HypixelPartyInviteEvent;
 import club.sk1er.popupevents.events.SkyblockTradeRequestEvent;
 import net.minecraft.client.Minecraft;
@@ -88,9 +89,23 @@ public class ConfirmationPopup {
     public void guildInvite(HypixelGuildInviteEvent event) {
         if (PopupConfig.guildInviteRequest) {
             playPingNoise();
-            displayConfirmation("Guild invite for " + event.getGuild(), accept -> {
+            displayConfirmation("Guild invite for " + event.getGuild() + " from " + event.getFrom(), accept -> {
                 if (accept) {
                     mc.thePlayer.sendChatMessage("/guild accept " + event.getFrom());
+                }
+
+                currentConfirmation.framesLeft = 0;
+            });
+        }
+    }
+
+    @SubscribeEvent
+    public void guildPartyInvite(HypixelGuildPartyEvent event) {
+        if (PopupConfig.guildPartyInviteRequest) {
+            playPingNoise();
+            displayConfirmation("Guild party invite from " + event.getFrom() + " in " + event.getGuild(), accept -> {
+                if (accept) {
+                    mc.thePlayer.sendChatMessage("/party accept " + event.getFrom());
                 }
 
                 currentConfirmation.framesLeft = 0;

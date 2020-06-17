@@ -3,6 +3,7 @@ package club.sk1er.popupevents.handler;
 import club.sk1er.popupevents.handler.impl.DuelRequestHandler;
 import club.sk1er.popupevents.handler.impl.FriendRequestHandler;
 import club.sk1er.popupevents.handler.impl.GuildInviteHandler;
+import club.sk1er.popupevents.handler.impl.GuildPartyHandler;
 import club.sk1er.popupevents.handler.impl.PartyInviteHandler;
 import club.sk1er.popupevents.handler.impl.SkyblockTradeRequestHandler;
 import net.minecraft.command.ICommandManager;
@@ -28,6 +29,7 @@ public class PopupHandlers {
         registerChatHandler(new SkyblockTradeRequestHandler());
         registerChatHandler(new DuelRequestHandler());
         registerChatHandler(new GuildInviteHandler());
+        registerChatHandler(new GuildPartyHandler());
 
         MinecraftForge.EVENT_BUS.register(this);
     }

@@ -37,6 +37,13 @@ public class PopupConfig extends Vigilant {
     public static boolean guildInviteRequest = true;
 
     @Property(
+        type = PropertyType.SWITCH, name = "Guild Party Invites",
+        category = "Popup Events", subcategory = "Request Types",
+        description = "Receive popups for Guild Party Invites."
+    )
+    public static boolean guildPartyInviteRequest = true;
+
+    @Property(
         type = PropertyType.SWITCH, name = "Skyblock Trade Requests",
         category = "Popup Events", subcategory = "Request Types",
         description = "Receive popups for Skyblock Trade Requests."
