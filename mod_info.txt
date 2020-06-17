@@ -1,1 +1,1 @@
-<p>Popup Events allows you to easily join/deny a request on Hypixel with the press of a single key.</p>
+<p>Popup Events allows you to easily accept/deny a request on Hypixel with the press of a single key.</p>
