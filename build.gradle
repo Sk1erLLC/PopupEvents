@@ -50,3 +50,12 @@ processResources {
         exclude "mcmod.info"
     }
 }
+
+jar {
+    manifest {
+        attributes "FMLCorePlugin": "club.sk1er.popupevents.tweaker.PopupEventsTweaker",
+                "ModSide": "CLIENT",
+                "FMLCorePluginContainsFMLMod": "Yes, yes it does"
+    }
+}
+
