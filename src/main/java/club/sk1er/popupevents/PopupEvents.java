@@ -1,27 +1,65 @@
 package club.sk1er.popupevents;
 
+import club.sk1er.popupevents.commands.PopupCommand;
+import club.sk1er.popupevents.config.PopupConfig;
 import club.sk1er.popupevents.handler.PopupHandlers;
+import club.sk1er.popupevents.keybinds.KeybindAccept;
+import club.sk1er.popupevents.keybinds.KeybindDeny;
+import club.sk1er.popupevents.modcore.ModCoreInstaller;
 import club.sk1er.popupevents.render.ConfirmationPopup;
-import club.sk1er.popupevents.utils.Sk1erMod;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = PopupEvents.MODID, name = PopupEvents.NAME, version = PopupEvents.VERSION)
 public class PopupEvents {
 
     public static final String MODID = "popup_events";
     public static final String NAME = "PopupEvents";
-    public static final String VERSION = "1.2.2";
+    public static final String VERSION = "1.3";
 
     private final ConfirmationPopup confirmationPopup = new ConfirmationPopup();
+    private KeyBinding keybindAccept, keybindDeny;
+    private PopupConfig popupConfig;
+
+    @Mod.Instance(MODID)
+    public static PopupEvents instance;
+
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        ClientRegistry.registerKeyBinding(keybindAccept = new KeybindAccept());
+        ClientRegistry.registerKeyBinding(keybindDeny = new KeybindDeny());
+    }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        new Sk1erMod(MODID, VERSION, NAME).checkStatus();
+        popupConfig = new PopupConfig();
+        popupConfig.preload();
+
+        ModCoreInstaller.initializeModCore(Minecraft.getMinecraft().mcDataDir);
+
+        ClientCommandHandler.instance.registerCommand(new PopupCommand());
+
         PopupHandlers handlers = new PopupHandlers();
         handlers.postInit();
 
         MinecraftForge.EVENT_BUS.register(confirmationPopup);
+    }
+
+    public KeyBinding getKeybindAccept() {
+        return keybindAccept;
+    }
+
+    public KeyBinding getKeybindDeny() {
+        return keybindDeny;
+    }
+
+    public PopupConfig getPopupConfig() {
+        return popupConfig;
     }
 }

@@ -1,6 +1,10 @@
 package club.sk1er.popupevents.handler;
 
-import club.sk1er.popupevents.handler.impl.*;
+import club.sk1er.popupevents.handler.impl.DuelRequestHandler;
+import club.sk1er.popupevents.handler.impl.FriendRequestHandler;
+import club.sk1er.popupevents.handler.impl.GuildInviteHandler;
+import club.sk1er.popupevents.handler.impl.PartyInviteHandler;
+import club.sk1er.popupevents.handler.impl.SkyblockTradeRequestHandler;
 import net.minecraft.command.ICommandManager;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,8 +17,8 @@ import java.util.List;
 
 public class PopupHandlers {
 
-    private List<AbstractChatHandler> chatHandlers;
-    private GeneralChatHandler generalChatHandler;
+    private final List<AbstractChatHandler> chatHandlers;
+    private final GeneralChatHandler generalChatHandler;
 
     public PopupHandlers() {
         chatHandlers = new ArrayList<>();
@@ -39,14 +43,6 @@ public class PopupHandlers {
 
     private void register(Object object) {
         MinecraftForge.EVENT_BUS.register(object);
-    }
-
-    public List<AbstractChatHandler> getChatHandlers() {
-        return chatHandlers;
-    }
-
-    public GeneralChatHandler getGeneralChatHandler() {
-        return generalChatHandler;
     }
 
     @SubscribeEvent

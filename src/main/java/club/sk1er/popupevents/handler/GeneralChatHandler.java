@@ -1,6 +1,6 @@
 package club.sk1er.popupevents.handler;
 
-import club.sk1er.popupevents.data.JsonHolder;
+import club.sk1er.mods.core.util.JsonHolder;
 import com.google.gson.JsonParser;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
