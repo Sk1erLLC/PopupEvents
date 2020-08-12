@@ -14,6 +14,7 @@ import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -242,8 +243,8 @@ public class ConfirmationPopup {
 
                 fr.drawString(text, resolution.getScaledWidth() / 2 - fr.getStringWidth(text) / 2, 58, -1);
                 String acceptDeny =
-                    EnumChatFormatting.GREEN + "[" + Keyboard.getKeyName(PopupEvents.instance.getKeybindAccept().getKeyCode()) + "] Accept " +
-                        EnumChatFormatting.RED + "[" + Keyboard.getKeyName(PopupEvents.instance.getKeybindDeny().getKeyCode()) + "] Deny";
+                        EnumChatFormatting.GREEN + "[" + GameSettings.getKeyDisplayString(PopupEvents.instance.getKeybindAccept().getKeyCode()) + "] Accept " +
+                        EnumChatFormatting.RED + "[" + GameSettings.getKeyDisplayString(PopupEvents.instance.getKeybindDeny().getKeyCode()) + "] Deny";
                 fr.drawString(acceptDeny, resolution.getScaledWidth() / 2 - fr.getStringWidth(acceptDeny) / 2, 70, -1);
             }
 
