@@ -12,14 +12,11 @@ public class GuildInviteHandler extends AbstractChatHandler {
 
     @Override
     public boolean chatReceived(IChatComponent component, String text) {
-        if (!text.toLowerCase().contains("their guild,")) {
-            return false;
-        }
 
         Matcher matcher = regexTypePatternMap.get(ChatRegexType.GUILD_INVITE).matcher(text);
 
         if (matcher.find()) {
-            MinecraftForge.EVENT_BUS.post(new HypixelGuildInviteEvent(matcher.group("player"), matcher.group("guild")));
+            MinecraftForge.EVENT_BUS.post(new HypixelGuildInviteEvent(matcher.group("command"), matcher.group("name")));
         }
 
         return false;

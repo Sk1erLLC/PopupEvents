@@ -1,8 +1,8 @@
 {
-  "friend_request": "Friend request from ((?<rank>\\[.+] )?(?<player>\\w+)).*",
-  "party_invite": "(\\[.*] )?(?<player>\\w+) has invited you to join (?<party>\\w+) party!",
+  "friend_request": "Friend request from ((?<rank>\\[.+] )?(?<player>\\S{1,16})).*",
+  "party_invite": "(?:\\[.*] )?(?<player>\\S{1,16}) has invited you to join (?:their|(?:\\[.*] ?)?\\w{1,16}'s)? party!",
   "skyblock_trade_request": "(?<player>\\S{1,16}) has sent you a trade request\\. Click here to accept!$",
   "duel_request": "(\\[.*] )?(?<player>\\S{1,16}) has invited you to (?<gametype>\\S+) Duels!",
-  "guild_invite": "(\\?[.*] )?(?<player>\\S{1,16}) has invited you to join their guild, (?<guild>\\S+)",
+  "guild_invite": "Click here to accept or type (?<command>\\/guild accept (?<name>\\w+))!",
   "guild_party": "(\\?[.*] )?(?<player>\\S{1,16}) has invited all members of (?<guild>\\S+) to their party!"
 }
