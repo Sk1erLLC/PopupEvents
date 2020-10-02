@@ -90,9 +90,9 @@ public class ConfirmationPopup {
     public void guildInvite(HypixelGuildInviteEvent event) {
         if (PopupConfig.guildInviteRequest) {
             playPingNoise();
-            displayConfirmation("Guild invite for " + event.getGuild() + " from " + event.getFrom(), accept -> {
+            displayConfirmation("Guild invite for " + event.getGuild(), accept -> {
                 if (accept) {
-                    mc.thePlayer.sendChatMessage("/guild accept " + event.getFrom());
+                    mc.thePlayer.sendChatMessage(event.getCommand());
                 }
 
                 currentConfirmation.framesLeft = 0;

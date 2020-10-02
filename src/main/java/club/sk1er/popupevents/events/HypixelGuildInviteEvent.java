@@ -4,16 +4,16 @@ import net.minecraftforge.fml.common.eventhandler.Event;
 
 public class HypixelGuildInviteEvent extends Event {
 
-    private final String from;
+    private final String command;
     private final String guild;
 
-    public HypixelGuildInviteEvent(String from, String guild) {
-        this.from = from;
+    public HypixelGuildInviteEvent(String command, String guild) {
+        this.command = command;
         this.guild = guild;
     }
 
-    public String getFrom() {
-        return from;
+    public String getCommand() {
+        return command;
     }
 
     public String getGuild() {

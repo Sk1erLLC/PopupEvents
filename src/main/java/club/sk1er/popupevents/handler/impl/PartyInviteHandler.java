@@ -11,7 +11,7 @@ public class PartyInviteHandler extends AbstractChatHandler {
 
     @Override
     public boolean chatReceived(IChatComponent component, String text) {
-        if (!text.toLowerCase().contains("their party!")) {
+        if (!text.contains("has invited you to join")) {
             return false;
         }
 
