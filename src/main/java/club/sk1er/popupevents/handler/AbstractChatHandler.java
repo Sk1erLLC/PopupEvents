@@ -21,6 +21,7 @@ public abstract class AbstractChatHandler {
         SKYBLOCK_TRADE_REQUEST,
         DUEL_REQUEST,
         GUILD_INVITE,
-        GUILD_PARTY
+        GUILD_PARTY,
+        MINEPLEX_FRIEND_REQUEST
     }
 }
