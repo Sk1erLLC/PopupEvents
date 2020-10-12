@@ -2,12 +2,7 @@ package club.sk1er.popupevents.render;
 
 import club.sk1er.popupevents.PopupEvents;
 import club.sk1er.popupevents.config.PopupConfig;
-import club.sk1er.popupevents.events.HypixelDuelRequestEvent;
-import club.sk1er.popupevents.events.HypixelFriendRequestEvent;
-import club.sk1er.popupevents.events.HypixelGuildInviteEvent;
-import club.sk1er.popupevents.events.HypixelGuildPartyEvent;
-import club.sk1er.popupevents.events.HypixelPartyInviteEvent;
-import club.sk1er.popupevents.events.SkyblockTradeRequestEvent;
+import club.sk1er.popupevents.events.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.audio.SoundHandler;
@@ -22,7 +17,7 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import org.lwjgl.input.Keyboard;
 
-import java.awt.Color;
+import java.awt.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.function.Consumer;
@@ -39,6 +34,28 @@ public class ConfirmationPopup {
             playPingNoise();
             displayConfirmation("Friend request from " + event.getFrom(), accept -> {
                 mc.thePlayer.sendChatMessage((accept ? "/friend accept " : "/friend deny ") + event.getFrom());
+                currentConfirmation.framesLeft = 0;
+            });
+        }
+    }
+
+    @SubscribeEvent
+    public void hiveFriendRequest(HiveFriendRequestEvent event) {
+        if (PopupConfig.friendRequestsRequest) {
+            playPingNoise();
+            displayConfirmation("Friend request from " + event.getFrom(), accepted -> {
+                mc.thePlayer.sendChatMessage("/friend " + (accepted ? "accept" : "deny") + " " + event.getFrom());
+                currentConfirmation.framesLeft = 0;
+            });
+        }
+    }
+
+    @SubscribeEvent
+    public void hivePartyRequest(HivePartyRequestEvent event) {
+        if (PopupConfig.partyInviteRequest) {
+            playPingNoise();
+            displayConfirmation("Party request from " + event.getFrom(), accepted -> {
+                mc.thePlayer.sendChatMessage("/party " + (accepted ? "accept" : "deny") + " " + event.getFrom());
                 currentConfirmation.framesLeft = 0;
             });
         }
@@ -243,7 +260,7 @@ public class ConfirmationPopup {
 
                 fr.drawString(text, resolution.getScaledWidth() / 2 - fr.getStringWidth(text) / 2, 58, -1);
                 String acceptDeny =
-                        EnumChatFormatting.GREEN + "[" + GameSettings.getKeyDisplayString(PopupEvents.instance.getKeybindAccept().getKeyCode()) + "] Accept " +
+                    EnumChatFormatting.GREEN + "[" + GameSettings.getKeyDisplayString(PopupEvents.instance.getKeybindAccept().getKeyCode()) + "] Accept " +
                         EnumChatFormatting.RED + "[" + GameSettings.getKeyDisplayString(PopupEvents.instance.getKeybindDeny().getKeyCode()) + "] Deny";
                 fr.drawString(acceptDeny, resolution.getScaledWidth() / 2 - fr.getStringWidth(acceptDeny) / 2, 70, -1);
             }

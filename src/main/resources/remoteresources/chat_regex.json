@@ -4,5 +4,7 @@
   "skyblock_trade_request": "(?<player>\\S{1,16}) has sent you a trade request\\. Click here to accept!$",
   "duel_request": "(\\[.*] )?(?<player>\\S{1,16}) has invited you to (?<gametype>\\S+) Duels!",
   "guild_invite": "Click here to accept or type (?<command>\\/guild accept (?<name>\\w+))!",
-  "guild_party": "(\\?[.*] )?(?<player>\\S{1,16}) has invited all members of (?<guild>\\S+) to their party!"
+  "guild_party": "(\\?[.*] )?(?<player>\\S{1,16}) has invited all members of (?<guild>\\S+) to their party!",
+  "hive_friend_request": ". HiveMC . You received a friend invite from (?<player>\\S{1,16})!",
+  "hive_party_request": ". Party . (?<player>\\S{1,16}) wants you to join their party!"
 }
