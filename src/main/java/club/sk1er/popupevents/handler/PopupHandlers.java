@@ -27,6 +27,7 @@ public class PopupHandlers {
         registerChatHandler(new GuildPartyHandler());
         registerChatHandler(new HiveFriendRequestHandler());
         registerChatHandler(new HivePartyRequestHandler());
+        registerChatHandler(new MineplexFriendRequestHandler());
 
         MinecraftForge.EVENT_BUS.register(this);
     }

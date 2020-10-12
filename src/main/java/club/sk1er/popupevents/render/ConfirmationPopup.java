@@ -76,6 +76,17 @@ public class ConfirmationPopup {
     }
 
     @SubscribeEvent
+    public void mineplexFriendRequest(MineplexFriendRequestEvent event) {
+        if (PopupConfig.friendRequestsRequest) {
+            playPingNoise();
+            displayConfirmation("Friend request from " + event.getFrom(), accept -> {
+                mc.thePlayer.sendChatMessage((accept ? "/friend " : "/unfriend ") + event.getFrom());
+                currentConfirmation.framesLeft = 0;
+            });
+        }
+    }
+
+    @SubscribeEvent
     public void tradeRequest(SkyblockTradeRequestEvent event) {
         if (PopupConfig.skyblockTradeRequest) {
             playPingNoise();
