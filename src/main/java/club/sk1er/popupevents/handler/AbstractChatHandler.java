@@ -23,6 +23,7 @@ public abstract class AbstractChatHandler {
         GUILD_INVITE,
         GUILD_PARTY,
         HIVE_FRIEND_REQUEST,
-        HIVE_PARTY_REQUEST
+        HIVE_PARTY_REQUEST,
+        MINEPLEX_FRIEND_REQUEST
     }
 }
