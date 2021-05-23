@@ -1,7 +1,7 @@
 package club.sk1er.popupevents.handler;
 
-import club.sk1er.mods.core.util.JsonHolder;
 import com.google.gson.JsonParser;
+import gg.essential.api.utils.JsonHolder;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.io.InputStreamReader;
 import java.util.EnumMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class GeneralChatHandler {
@@ -41,7 +42,8 @@ public class GeneralChatHandler {
     }
 
     void post() {
-        JsonHolder data = new JsonHolder(new JsonParser().parse(new InputStreamReader(GeneralChatHandler.class.getResourceAsStream("/remoteresources/chat_regex.json"))).getAsJsonObject());
+        // todo: unclosed stream?
+        JsonHolder data = new JsonHolder(new JsonParser().parse(new InputStreamReader(Objects.requireNonNull(GeneralChatHandler.class.getResourceAsStream("/remoteresources/chat_regex.json")))).getAsJsonObject());
 
         AbstractChatHandler.regexTypePatternMap = new EnumMap<>(AbstractChatHandler.ChatRegexType.class);
 

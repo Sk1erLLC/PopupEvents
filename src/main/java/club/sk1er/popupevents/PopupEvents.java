@@ -5,11 +5,9 @@ import club.sk1er.popupevents.config.PopupConfig;
 import club.sk1er.popupevents.handler.PopupHandlers;
 import club.sk1er.popupevents.keybinds.KeybindAccept;
 import club.sk1er.popupevents.keybinds.KeybindDeny;
-import club.sk1er.popupevents.modcore.ModCoreInstaller;
 import club.sk1er.popupevents.render.ConfirmationPopup;
-import net.minecraft.client.Minecraft;
+import gg.essential.api.EssentialAPI;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -21,7 +19,7 @@ public class PopupEvents {
 
     public static final String MODID = "popup_events";
     public static final String NAME = "PopupEvents";
-    public static final String VERSION = "1.3.1";
+    public static final String VERSION = "1.3.2";
 
     private final ConfirmationPopup confirmationPopup = new ConfirmationPopup();
     private KeyBinding keybindAccept, keybindDeny;
@@ -41,9 +39,7 @@ public class PopupEvents {
         popupConfig = new PopupConfig();
         popupConfig.preload();
 
-        ModCoreInstaller.initializeModCore(Minecraft.getMinecraft().mcDataDir);
-
-        ClientCommandHandler.instance.registerCommand(new PopupCommand());
+        EssentialAPI.getCommandRegistry().registerCommand(new PopupCommand());
 
         PopupHandlers handlers = new PopupHandlers();
         handlers.postInit();

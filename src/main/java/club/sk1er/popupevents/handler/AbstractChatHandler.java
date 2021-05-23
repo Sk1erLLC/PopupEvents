@@ -1,6 +1,6 @@
 package club.sk1er.popupevents.handler;
 
-import club.sk1er.mods.core.util.JsonHolder;
+import gg.essential.api.utils.JsonHolder;
 import net.minecraft.util.IChatComponent;
 
 import java.util.Map;
