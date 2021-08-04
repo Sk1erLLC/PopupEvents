@@ -52,8 +52,8 @@ configurations {
 }
 
 dependencies {
-    embed "gg.essential:loader-launchwrapper:1.0.2"
-    implementation "gg.essential:Essential:1149-${mcVersion}-SNAPSHOT"
+    embed "gg.essential:loader-launchwrapper:1.1.0"
+    implementation "gg.essential:essential-${mcVersionStr}-forge:1282"
 }
 
 task moveResources {
