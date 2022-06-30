@@ -4,7 +4,7 @@
     "name": "Popup Events",
     "description": "Easily accept or deny a request on Hypixel with the press of a button.",
     "version": "${version}",
-    "mcversion": "${mcversion}",
+    "mcversion": "${mcVersionStr}",
     "url": "https://sk1er.club/mods/popup_events",
     "updateUrl": "",
     "authorList": [],
